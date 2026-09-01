@@ -1,0 +1,17 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.mcp-dir/tjsp-mcp",
+  "title": "Jurisprudência TJSP",
+  "description": "Search case law from **TJSP**, the Brazilian court with the largest body of published decisions, str",
+  "version": "0.1.0",
+  "repository": {
+    "url": "https://github.com/mcp-dir/tjsp-mcp",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://api.mcp.ai/p_tjsp"
+    }
+  ]
+}

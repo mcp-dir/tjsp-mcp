@@ -1,0 +1,39 @@
+# Smithery configuration for Jurisprudência TJSP
+# Schema: https://smithery.ai/docs/build/project-config
+# Remote HTTP MCP — server hosted at https://api.mcp.ai/p_tjsp
+
+name: tjsp-mcp
+displayName: "Jurisprudência TJSP"
+description: >
+  Pesquise jurisprudência do **TJSP**, o tribunal com o maior acervo de decisões do país, direto do Claude, ChatGPT ou do seu agente. Pergunte em português comum e receba acórdãos com órgão julgador, relator, data, o trecho exato que casou a busca e o link no site oficial. A mesma conexão alcança outros 16 tribunais, incluindo STF, STJ e TST, quando a sua tese não para em São Paulo. Grátis, sem login, hospedado pela plataforma.
+
+version: 0.1.0
+license: MIT
+homepage: https://github.com/mcp-dir/tjsp-mcp
+repository: https://github.com/mcp-dir/tjsp-mcp
+
+tags:
+  - tjsp
+  - sao-paulo
+  - jurisprudencia
+  - case-law
+  - brazil
+  - tribunal-de-justica
+  - acordaos
+  - read-only
+  - no-auth
+  - free
+
+# Remote HTTP MCP — sem startCommand local (servidor já hospedado)
+startCommand:
+  type: http
+  url: https://api.mcp.ai/p_tjsp
+
+auth:
+  type: oauth2
+  resourceMetadataUrl: https://api.mcp.ai/p_tjsp/.well-known/oauth-protected-resource
+  fallback:
+    type: agent-auth
+    description: >
+      Para clientes sem OAuth 2.1. O agente expõe uma tool authenticate(token).
+      Usuário gera o JWT em https://app.mcp.ai/agent-auth e cola no chat.
